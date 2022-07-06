@@ -38,7 +38,7 @@ const App = () => {
                 />
             </div>
 
-            {movies?.length > 0
+            {movies?.length >0 && searchTerm.length > 0
                 ? (
                     <div className="container">
                         {movies.map((movie) => (
@@ -46,8 +46,13 @@ const App = () => {
                         ))}
                     </div>
                 ): (
+                    searchTerm.length>0 ? 
                     <div className="empty">
                         <h2>No movies found</h2>
+                    </div>
+                    :
+                    <div className="empty">
+                        <h2>Search for a movie</h2>
                     </div>
                 )
             }
