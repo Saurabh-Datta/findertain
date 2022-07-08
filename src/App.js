@@ -27,9 +27,10 @@ const App = () => {
 
             <div className="search">
                 <input
-                    placeholder="Search for movies"
+                    placeholder="Search for movies or series"
                     value={searchTerm}
                     onChange={(e) => {setSearchTerm(e.target.value); searchMovies(e.target.value)}}
+                    onKeyDown={(e) => {if(e.key === "Enter"){searchMovies(searchTerm)}}}
                 />
                 <img
                     src={SearchIcon}
@@ -52,7 +53,7 @@ const App = () => {
                     </div>
                     :
                     <div className="empty">
-                        <h2>Search for a movie</h2>
+                        <h2>Search for a movie or series</h2>
                     </div>
                 )
             }
